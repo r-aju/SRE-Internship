@@ -1,0 +1,89 @@
+COMMANDS OF LINUX.
+
+
+-> Find the processes running on a linux machine
+   * ps command (ps -aux)
+
+
+-> Find the users currently logged in
+    * w ,w-h,w-us
+
+-> Find the uptime of the machine
+   * uptime, uptime-p,uptime-s
+
+
+-> Find the ram usage
+   * free, free-h, free-m
+
+
+-> Find the disk usage
+   * du , du-h, du /home/kanaka
+
+
+-> Find the inode usage 
+   * df-i
+
+-> Find the ulimit of a user
+  *ulimit, ulimit-Sa, Ulimit -Ha - (Unlimited for root) (soft limit and hard limit)
+
+->Find the ulimit of a process-> S
+ 
+->Find the file descriptors used by a process -> isof
+
+
+->Find the top 5 process by memory usage 
+   *ps -eo pid,ppid,cmd,%mem —sort=-%mem | head -n 5
+
+
+->Find the top 5 process by cpu usage 
+  * ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem|head -n 5
+
+
+->Find the top 5 process by network usage
+  * Can be done in 2 ways -> install nethogs or ss,ss-a,ss-l,ss-lt
+
+ 
+->Find the top 5 process by disk iops usage *
+  *iostat , iostat -t, iostat -d, iostat -n, iostat | head -n 5
+
+
+->Find the network traffic and bandwidth usage of the machine 
+	*iftop,iptraf,jnettop.
+
+
+-> Given a file as input, find the processes using that file *
+	*fuser (name of the file) (fuser filename)
+
+
+->list files opened by a process (ex: sshd, httpd) 
+	*ls -l /proc/PID/fd  
+
+
+->list processes listening on a specific port (ex: 22) *
+          *lsof -i : portNo.
+
+  
+->Find the status of a service (ex: httpd)
+	*systemctl status service-name
+
+
+->Find zombie processes on a machine 
+	*top -b1 -n1 | grep Z
+
+->Find the environment variables set on a machine 
+	*env or printenv
+
+->Display processes started by a user 
+	*(ps -u (USERNAME))
+
+
+->kill a process 
+	*kill
+
+
+->list open ports 
+	*cat /etc/services   or netstat
+
+
+->find the permissions set for a file 
+*chomd is user . -> chmod 777 -filename or chmod u=rwx , g=rwx o=rwx [filename], ls -l[filename].
